@@ -43,7 +43,7 @@
 				Icons made by <a href="https://freepik.com">Freepik</a> from <a href="https://flaticon.com">flaticon.com</a>
 			</p>
 			<p>
-				Copyright &copy; 2021 <a href="/">Chris Rahmé</a>
+				Copyright &copy; 2022 <a href="/">Chris Rahmé</a>
 			</p>
 		</div>
 	</div>
