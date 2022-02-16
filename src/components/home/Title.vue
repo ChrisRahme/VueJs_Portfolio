@@ -76,13 +76,13 @@
 	color: var(--color-primary);
 }
 
-#Title .names:hover > .name-long {
+/* #Title .names:hover > .name-long {
     opacity: 1;
 }
 
 #Title .names:hover > .name-short {
     opacity: 0;
-}
+} */
 
 
 
@@ -181,6 +181,7 @@ export default {
 	},
 
 	mounted() {
+		// Icons animation
 		const _this = document.getElementById('Title')
 		const icon_row = _this.getElementsByClassName('icons')[0]
 		const icons = Array.from(icon_row.getElementsByClassName('icon'))
