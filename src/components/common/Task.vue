@@ -5,14 +5,15 @@
 		<h5 v-else>{{this.start}} - Present</h5>
 	</div>
 
-	<details class="col-lg">
+	<details class="col-lg-10">
 		<summary>
 			<h5>{{this.title}}</h5>
-			<h6 v-if="this.location">&nbsp;&nbsp;&nbsp;&nbsp;- {{this.location}}</h6>
+			<h6 v-if="this.subtitle">&nbsp;&nbsp;&nbsp;&nbsp;at {{this.subtitle}}</h6>
 		</summary>
 
 		<span v-if="this.details">
-			<p v-for="(paragraph, p_idx) in this.details" :key="p_idx">{{paragraph}}</p>
+			<p v-for="(paragraph, p_idx) in this.details" :key="p_idx">{{paragraph || '&nbsp;'}}</p>
+			<!-- <hr> -->
 		</span>
 	</details>
 </div>
@@ -64,7 +65,7 @@ export default {
 		'start': String,
 		'end': String,
 		'title': String,
-		'location': String,
+		'subtitle': String,
 		'details': Array
 	},
 }

@@ -4,7 +4,7 @@
 <template>
 <footer id="Footer">
 	<div class="container">
-		<h3><a href="">ChrisRahme.com</a></h3>
+		<h3><a href="https://chrisrahme.netlify.app">chrisrahme.netlify.app</a></h3>
 
 		<address class="icons">
 			<a class="in" target="_blank" href="https://linkedin.com/in/chris-rahme">

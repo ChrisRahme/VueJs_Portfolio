@@ -92,8 +92,10 @@ export default {
 				'': 'Home',
 			})
 
+			const url = window.location.pathname
+
 			for (let [path, component] of paths) {
-				if (window.location.pathname.startsWith(path)) return component
+				if (url == path || url.startsWith(path + '/')) return component
 			}
 		},
 
