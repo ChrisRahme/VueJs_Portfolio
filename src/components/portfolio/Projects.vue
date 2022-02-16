@@ -33,6 +33,7 @@
 	line-height: 2rem;
 	height: 3rem;
 	border-radius: 1.5rem;
+	font-size: 0.9rem;
 	outline: none;
 	margin-top: 2rem;
 	background-color: var(--color-light);
@@ -95,6 +96,67 @@ export default {
 				},
 			]
 		}
-  	}
+  	},
+
+	methods: {
+		clampCards() {
+			const _this = document.getElementById('Projects')
+			const cards = Array.from(_this.getElementsByClassName('Card'))
+			const tops  = cards.map((card) => card.getBoundingClientRect().top)
+			const bots  = cards.map((card) => card.getBoundingClientRect().bottom)
+
+			let n_cols = 1
+			let prev_diffs = []
+
+			for (n_cols; n_cols < cards.length; n_cols++) {
+				if (tops[n_cols] !== tops[n_cols-1]) break
+			}
+
+			for (let i = 0; i < cards.length; i += n_cols) {
+				let diffs = []
+
+				for (let j = 0; j < n_cols && i+j < cards.length; j++) {
+					diffs.push(tops[i+j] - bots[i+j - n_cols])
+				}
+
+				const margin = 24 // Math.max(Math.min(...diffs), 24)
+				diffs = diffs.map((diff, j) => diff + (prev_diffs[j] || 0) - margin)
+
+				for (let j = 0; j < n_cols && i+j < cards.length; j++) {
+					cards[i+j].style.transform = `translateY(-${diffs[j]}px)`
+				}
+
+				prev_diffs = diffs
+			}
+		},
+
+		clampCardsOnResize() {
+			const self = this
+			var resizeTimeout
+
+			clearTimeout(resizeTimeout)
+
+			const _this = document.getElementById('Projects')
+			const cards = Array.from(_this.getElementsByClassName('Card'))
+
+			cards.forEach((card) => card.style.transform = '')
+
+			resizeTimeout = setTimeout(() => {
+				self.clampCards()
+			}, 500)
+		}
+	},
+
+	created() {
+		window.addEventListener('resize', this.clampCardsOnResize)
+	},
+
+	mounted() {
+		this.clampCards()
+	},
+
+	destroyed() {
+		window.removeEventListener('resize', this.clampCardsOnResize)
+	},
 }
 </script>
