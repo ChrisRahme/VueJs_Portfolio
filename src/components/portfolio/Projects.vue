@@ -74,7 +74,7 @@ export default {
 						'I hope you like it!'
 					],
 					links: [
-						{url: 'https://www.github.com/ChrisRahme/fyp-chatbot', alt: 'GitHub', icon: ['fab', 'github']}
+						{url: 'https://www.github.com/ChrisRahme/vuejs-portfolio', alt: 'GitHub', icon: ['fab', 'github']}
 					],
 					feet: [
 						'Vue'
