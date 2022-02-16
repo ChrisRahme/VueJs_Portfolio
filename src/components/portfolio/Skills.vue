@@ -48,7 +48,7 @@ export default {
 				{
 					title: 'Programming Languages & Frameworks',
 					details: [
-						'Python, Java, C#, C++, C',
+						'Python, Java, C#',
 						'Rasa',
 						'Unity'
 					]
@@ -56,9 +56,18 @@ export default {
 				{
 					title: 'Web Languages & Frameworks',
 					details: [
-						'HTML, CSS, JavaScript, PHP, NodeJS',
-						'Vue, React, Laravel',
+						'HTML, CSS',
+						'JavaScript, PHP, NodeJS, Node-RED',
+						'Vue, React, Laravel, Django',
 						'Drupal'
+					]
+				},
+				{
+					title: 'DevOps',
+					details: [
+						'Agile',
+						'Docker, Helm, Kubernetes',
+						'Git, GitHub, GitLab',
 					]
 				},
 			],
@@ -67,10 +76,16 @@ export default {
 				{
 					title: 'Other Dev Tools',
 					details: [
-						'MySQL, Redis, MongoDB',
-						'Docker, Helm, Kubernetes',
-						'Git',
-						'Windows, Linux'
+						'REST',
+						'Windows, Linux',
+					]
+				},
+				{
+					title: 'Databases',
+					details: [
+						'MySQL, SQLite',
+						'Redis, MongoDB',
+						'Elasticsearch',
 					]
 				},
 				{

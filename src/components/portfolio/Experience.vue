@@ -6,7 +6,7 @@
 				<h1>{{section.title}}</h1>
 
 				<Task v-for="(task, idx_t) in section.tasks" :key="idx_t"
-					:start="task.start" :end="task.end" :title="task.title" :location="task.location" :details="task.details"
+					:start="task.start" :end="task.end" :title="task.title" :subtitle="task.location" :details="task.details"
 				/>
 			</div>
 		</div>
@@ -44,38 +44,6 @@ export default {
 		return {
 			sections: [
 				{
-					title: 'Education',
-					show: true,
-					tasks: [
-						{
-							start: 'Nov 2021', //end: 'Present',
-							title: 'Masters 2 in Artificial Intelligence',
-							location: 'Saint-Joseph University of Beirut',
-							details: [
-								'Currently doing a Masters in Artificial Intelligence, learning about Computer Vision, NLP, and more.',
-								'Expecting to graduate on summer of 2022.'
-							]
-						},
-						{
-							start: 'Sep 2016', end: 'Jun 2021',
-							title: 'Computer & Communications Engineering - Software Section',
-							location: 'Saint-Joseph University of Beirut',
-							details: [
-								'Graduated with a Bachelor’s degree in Computer & Communication Engineering with a focus on Software Engineering.'
-							]
-						},
-						{
-							start: 'Sep 2001', end: 'Jun 2016',
-							title: 'Life Sciences Baccalaureate',
-							location: 'Collège de la Sainte Famille Française Fanar',
-							details: [
-								'Graduated with a Lebanese Baccalaureate in Life Sciences.'
-							]
-						}
-					]
-				},
-
-				{
 					title: 'Experience',
 					show: true,
 					tasks: [
@@ -84,8 +52,12 @@ export default {
 							title: 'Full-Stack Web Developer & Data Integration Analyst (Full-time)',
 							location: 'Data Consult',
 							details: [
-								'Working on building CRMs, dashboards, and other projects such as a Google Chat chatbot.',
-								'Maily working with Laravel, Vue, NodeJS, and Node-RED.'
+								'Maily working with Laravel, Node-RED, and Docker.',
+								'',
+								'Major tasks:',
+								'- Google Chat chatbot integrated with NodeJS.',
+								'- Laravel + Node-RED + Asterisk call recording feature for Cisco VoIP phones using CUCM.',
+								'- Django + Node-RED CRUD and CRM app to manage clients\'s profile and licenses.'
 							]
 						},
 						{
@@ -115,7 +87,39 @@ export default {
 							]
 						}
 					]
-				}
+				},
+
+				{
+					title: 'Education',
+					show: true,
+					tasks: [
+						{
+							start: 'Nov 2021', //end: 'Present',
+							title: 'Masters 2 in Artificial Intelligence',
+							location: 'Saint-Joseph University of Beirut',
+							details: [
+								'Currently doing a Masters in Artificial Intelligence. Expecting to graduate mid-to-end 2022.',
+								'Courses learned: Computer Vision, NLP, Cybersecurity, Games.',
+							]
+						},
+						{
+							start: 'Sep 2016', end: 'Jun 2021',
+							title: 'Software-Focused Computer & Communications Engineering',
+							location: 'Saint-Joseph University of Beirut',
+							details: [
+								'Graduated with a Bachelor\'s degree in Computer & Communication Engineering with a focus on Software Engineering.'
+							]
+						},
+						{
+							start: 'Sep 2001', end: 'Jun 2016',
+							title: 'Life Sciences Baccalaureate',
+							location: 'Collège de la Sainte Famille Française Fanar',
+							details: [
+								'Graduated with a Lebanese Baccalaureate in Life Sciences.'
+							]
+						}
+					]
+				},
 			]
 		}
   	}
