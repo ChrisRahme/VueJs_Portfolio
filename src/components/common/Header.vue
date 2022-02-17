@@ -29,17 +29,9 @@
 				<span class="separator"></span>
 
 				<ul class="navbar-nav links">
-					<li class="nav-item active">
-						<a class="nav-link" href="/home">Home</a>
-					</li>
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="/about">About</a>
-					</li> -->
-					<li class="nav-item">
-						<a class="nav-link" href="/portfolio">Portfolio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/contact">Contact</a>
+					<li class="nav-item" v-for="(link, l_idx) in this.$root.pages" :key="l_idx">
+						<a class="nav-link disabled" v-if="link[0] == this.$root.page">{{link[0]}}</a>
+						<a class="nav-link"          :href="link[1]" v-else           >{{link[0]}}</a>
 					</li>
 				</ul>
 
@@ -187,6 +179,11 @@
 	/* border: 1.75px solid var(--color-primary); */
 }
 
+#Header #navbar-nav .nav-link.disabled {
+	color: var(--color-primary);
+	font-weight: 500;
+}
+
 
 
 /* SMALL SCREEN */
@@ -228,5 +225,9 @@
 
 
 <script>
-export default {}
+export default {
+	mounted() {
+		console.log(this.$root)
+	},
+}
 </script>

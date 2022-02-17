@@ -64,7 +64,12 @@ export default {
 
 	data() {
 		return {
-			rerender: 0
+			rerender: 0,
+			pages: [
+				['Home',      '/home'     ],
+				['Portfolio', '/portfolio'],
+				['Contact',   '/contact'  ],
+			]
 		}
 	},
 
@@ -85,16 +90,9 @@ export default {
 
 	computed: {
 		page: function() {
-			const paths = Object.entries({
-				'/portfolio': 'Portfolio',
-				'/contact': 'Contact',
-				'/home': 'Home',
-				'': 'Home',
-			})
-
 			const url = window.location.pathname
 
-			for (let [path, component] of paths) {
+			for (let [component, path] of [...this.pages, ['Home', '']]) {
 				if (url == path || url.startsWith(path + '/')) return component
 			}
 		},
