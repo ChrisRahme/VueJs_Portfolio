@@ -157,7 +157,7 @@ export default {
 				'From: ' + this.name.trim() + '\n'
 			)
 
-			window.open(`mailto:web.chrisrahme@gmail.com?subject=${sub}&body=${bod}`)
+			window.open(`mailto:web.chrisrahme.dev@gmail.com?subject=${sub}&body=${bod}`)
 			this.submitted = true
 		}
   	}
