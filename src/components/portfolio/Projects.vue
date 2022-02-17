@@ -1,7 +1,7 @@
 <template>
 <section id="Projects">
 	<div class="container">
-		<h1>Projects</h1>
+		<h1>Some Projects</h1>
 		<div class="cards row">
 			<div v-for="(project, c_idx) in this.projects" :key="c_idx" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4">
 				<Card :title="project.title" :links="project.links" :text="project.text" :feet="project.feet"/>
@@ -87,7 +87,7 @@ export default {
 
 				{
 					title: 'Portfolio Website',
-					links: [gitLink('vuejs-portfolio')],
+					links: [gitLink('vuejs_portfolio')],
 					feet: ['Vue 3'],
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
