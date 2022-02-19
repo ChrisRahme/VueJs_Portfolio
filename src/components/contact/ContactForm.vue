@@ -1,7 +1,7 @@
 <template>
 <section id="ContactForm">
 	<div class="container">
-		<form @submit.prevent="submit">
+		<form @submit.prevent="submit" netlify>
 			<fieldset>
 				<legend>Contact Me</legend>
 
