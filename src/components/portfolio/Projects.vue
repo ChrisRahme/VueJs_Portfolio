@@ -88,7 +88,7 @@ export default {
 				{
 					title: 'Portfolio Website',
 					links: [gitLink('vuejs_portfolio')],
-					feet: ['Vue 3, Vite, Netlify'],
+					feet: ['Vue 3', 'Vite', 'Netlify'],
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
 						'I hope you like it!'
