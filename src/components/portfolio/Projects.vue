@@ -79,7 +79,7 @@ export default {
 				{
 					title: 'AI Chatbot',
 					links: [gitLink('fyp-chatbot')],
-					feet: ['Rasa', 'Python', 'JavaScript', 'Kotlin', 'Helm'],
+					feet: ['Rasa', 'Python', 'JavaScript', 'Kotlin', 'Docker', 'Kubernetes', 'Helm'],
 					text: [
 						'Multilingual customer support AI chatbot with interfaces for Web and Mobile.'
 					],
