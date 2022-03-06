@@ -16,19 +16,19 @@
 			<a class="so" target="_blank" href="https://stackoverflow.com/users/8978116/chris-rahmé">
 				<font-awesome-icon class="icon" size="2x" title="Stack Overflow" :icon="['fab', 'stack-overflow']"/>
 			</a>
-			<a class="fb" target="_blank" href="https://facebook.com/Chris.Rahme.1998">
+			<a class="hidden fb" target="_blank" href="https://facebook.com/Chris.Rahme.1998">
 				<font-awesome-icon class="icon" size="2x" title="Facebook"       :icon="['fab', 'facebook-f']"/>
 			</a>
 			<a class="ig" target="_blank" href="https://instagram.com/chris.rahme.1998">
 				<font-awesome-icon class="icon" size="2x" title="Instagram"      :icon="['fab', 'instagram']"/>
 			</a>
-			<a class="tw" target="_blank" href="https://twitter.com/ChrisRahme1998">
+			<a class="hidden tw" target="_blank" href="https://twitter.com/ChrisRahme1998">
 				<font-awesome-icon class="icon" size="2x" title="Twitter"        :icon="['fab', 'twitter']"/>
 			</a>
 			<a class="yt" target="_blank" href="https://youtube.com/channel/UC4RT-sfpBNT_H7tCPOMPiqw">
 				<font-awesome-icon class="icon" size="2x" title="YouTube"        :icon="['fab', 'youtube']"/>
 			</a>
-			<a class="dc" target="_blank" href="https://discord.com/ChrisLuigiTails#8681">
+			<a class="hidden dc" target="_blank" href="https://discord.com/ChrisLuigiTails#8681">
 				<font-awesome-icon class="icon" size="2x" title="Discord"        :icon="['fab', 'discord']"/>
 			</a>
 		</address>
@@ -58,6 +58,18 @@
 	padding-bottom: 4rem;
 	background-color: var(--color-primary);
 	color: var(--color-light);
+}
+
+#Footer::before {
+	content: '';
+	position: absolute;
+	height: 4rem;
+	width: 100%;
+	background-color: var(--color-light);
+	border-top-left-radius: 50% 100%;
+	border-top-right-radius: 50% 100%;
+	z-index: 10;
+	transform: translate(-50%, calc(-100% - 8rem + 4rem)) rotate(180deg); /* -100$ - #Footer padding-top + height */
 }
 
 
