@@ -46,8 +46,8 @@
 
 
 <script>
-import Header from './components/common/Header.vue'
-import Footer from './components/common/Footer.vue'
+import Header from './components/static/Header.vue'
+import Footer from './components/static/Footer.vue'
 
 import Home from './components/home/Home.vue'
 import Portfolio from './components/portfolio/Portfolio.vue'
