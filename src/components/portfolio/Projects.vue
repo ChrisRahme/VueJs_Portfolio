@@ -78,7 +78,7 @@ export default {
 
 				{
 					title: 'AI Chatbot',
-					links: [gitLink('fyp-chatbot')],
+					links: [gitLink('FYP-Chatbot')],
 					feet: ['Rasa', 'Python', 'JavaScript', 'Kotlin', 'Docker', 'Kubernetes', 'Helm'],
 					text: [
 						'Multilingual customer support AI chatbot with interfaces for Web and Mobile.'
@@ -87,7 +87,7 @@ export default {
 
 				{
 					title: 'Portfolio Website',
-					links: [gitLink('vuejs_portfolio')],
+					links: [gitLink('VueJs_Portfolio')],
 					feet: ['Vue 3', 'Vite', 'Netlify'],
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
