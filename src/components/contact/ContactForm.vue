@@ -1,5 +1,5 @@
 <template>
-<section id="ContactForm">
+<section id="ContactForm" aria-label="Contact Form">
 	<div class="container">
 		<form @submit.prevent="submit" netlify>
 			<fieldset>

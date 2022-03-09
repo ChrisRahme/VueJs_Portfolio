@@ -1,5 +1,5 @@
 <template>
-<section id="Title">
+<section id="Title" aria-label="Title">
 	<div class="container">
 		<div class="names">
 			<h1 class="name-long">{{name_long}}</h1>
@@ -25,11 +25,8 @@
 
 				<!-- Web Frameworks -->
 				<font-awesome-icon class="icon animate" size="3x" title="Vue"        :icon="['fab', 'vuejs']"/>
-				<font-awesome-icon class="icon animate" size="3x" title="React"      :icon="['fab', 'react']"/>
+				<!-- <font-awesome-icon class="icon animate" size="3x" title="React"      :icon="['fab', 'react']"/> -->
 				<font-awesome-icon class="icon animate" size="3x" title="Laravel"    :icon="['fab', 'laravel']"/>
-				<!-- <font-awesome-icon class="icon separator" size="3x" :icon="['fas', 'grip-lines-vertical']"/> -->
-
-				<!-- Web CMS -->
 				<font-awesome-icon class="icon animate" size="3x" title="Drupal"     :icon="['fab', 'drupal']"/>
 				<font-awesome-icon class="icon separator" size="3x" :icon="['fas', 'grip-lines-vertical']"/>
 

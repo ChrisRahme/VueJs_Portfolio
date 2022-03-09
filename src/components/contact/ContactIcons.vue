@@ -1,5 +1,5 @@
 <template>
-<section id="ContactIcons">
+<section id="ContactIcons" aria-label="Contact Links">
 	<div class="container">
 		<address class="row icons">
 			<div class="col col-12 col-md-4">

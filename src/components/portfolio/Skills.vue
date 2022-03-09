@@ -1,5 +1,5 @@
 <template>
-<section id="Skills">
+<section id="Skills" aria-label="Skills">
 	<div class="container">
 		<h1>Skills</h1>
 

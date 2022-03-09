@@ -1,5 +1,5 @@
 <template>
-<section id="Experience">
+<section id="Experience" aria-label="Experience">
 	<div class="container">
 		<div v-for="(section, idx) in this.sections" :key="idx" class="section">
 			<div v-if="section.show">

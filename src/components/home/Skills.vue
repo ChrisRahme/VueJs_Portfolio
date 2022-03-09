@@ -1,5 +1,5 @@
 <template>
-<section id="Skills">
+<section id="Skills" aria-label="Skills">
 	<div class="container">
 		<HorizontalCard class="programming"
 			href="/portfolio/programming"
