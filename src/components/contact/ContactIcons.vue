@@ -22,8 +22,6 @@
 					<p class="icon">+961 71 283 701</p>
 				</a>
 			</div>
-
-
 		</address>
 	</div>
 </section>
