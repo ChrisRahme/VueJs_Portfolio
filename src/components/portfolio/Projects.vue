@@ -64,6 +64,10 @@ export default {
 			return {url: `https://www.github.com/ChrisRahme/${id}`, alt: 'View on GitHub', icon: ['fab', 'github']}
 		}
 
+		function playLink(id) {
+			return {url: `https://play.google.com/store/apps/details?id=com.ChraGames.${id}`, alt: 'View on PlayStore', icon: ['fab', 'google-play']}
+		}
+
 		return {
 			projects: [
 				{
@@ -92,6 +96,16 @@ export default {
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
 						'I hope you like it!'
+					],
+				},
+
+				{
+					title: 'Tappy Raven',
+					links: [playLink('TappyRaven')],
+					feet: ['Android', 'Unity', 'C#'],
+					text: [
+						'FlappyBird-based game.',
+						'Took a day to code the game, took a week to upload it on the Play Store.'
 					],
 				},
 			]
