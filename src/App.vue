@@ -66,9 +66,10 @@ export default {
 		return {
 			rerender: 0,
 			pages: [
-				['Home',      'home'     ],
-				['Portfolio', 'portfolio'],
-				['Contact',   'contact'  ],
+				//Title        URL         Show
+				['Home',      'home'     , true],
+				['Portfolio', 'portfolio', true],
+				['Contact',   'contact'  , true],
 			]
 		}
 	},
