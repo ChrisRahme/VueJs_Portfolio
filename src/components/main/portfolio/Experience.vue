@@ -33,7 +33,7 @@
 
 
 <script>
-import Task from "../common/Task.vue"
+import Task from "../../common/Task.vue"
 
 export default {
 	components: {

@@ -2,7 +2,7 @@
 <section id="Skills" aria-label="Skills">
 	<div class="container">
 		<HorizontalCard class="programming"
-			href="/portfolio/programming"
+			href="main/portfolio/programming"
 			icon="flaticon-programming-code-signs"
 			title="Programming"
 			:contents="[
@@ -26,7 +26,7 @@
 		/>
 
 		<HorizontalCard class="astronomy"
-			href="/portfolio/astronomy"
+			href="main/portfolio/astronomy"
 			icon="flaticon-galaxy-spiral-shape"
 			title="Astronomy"
 			:contents="[
@@ -115,7 +115,7 @@
 
 
 <script>
-import HorizontalCard from '../common/HorizontalCard.vue'
+import HorizontalCard from '../../common/HorizontalCard.vue'
 
 export default {
 	components: {

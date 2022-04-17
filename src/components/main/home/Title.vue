@@ -164,7 +164,7 @@
 
 
 <script>
-import Avatar from '../common/Avatar.vue'
+import Avatar from '../../common/Avatar.vue'
 
 export default {
 	data() {

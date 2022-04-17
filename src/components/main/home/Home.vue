@@ -20,7 +20,7 @@
 
 <script>
 import Title from './Title.vue'
-import Avatar from '../common/Avatar.vue'
+import Avatar from '../../common/Avatar.vue'
 import Brief from './Brief.vue'
 import Skills from './Skills.vue'
 

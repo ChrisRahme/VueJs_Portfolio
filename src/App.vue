@@ -49,9 +49,9 @@
 import Header from './components/static/Header.vue'
 import Footer from './components/static/Footer.vue'
 
-import Home from './components/home/Home.vue'
-import Portfolio from './components/portfolio/Portfolio.vue'
-import Contact from './components/contact/Contact.vue'
+import Home from './components/main/home/Home.vue'
+import Portfolio from './components/main/portfolio/Portfolio.vue'
+import Contact from './components/main/contact/Contact.vue'
 
 export default {
 	components: {
@@ -66,9 +66,9 @@ export default {
 		return {
 			rerender: 0,
 			pages: [
-				['Home',      '/home'     ],
-				['Portfolio', '/portfolio'],
-				['Contact',   '/contact'  ],
+				['Home',      'home'     ],
+				['Portfolio', 'portfolio'],
+				['Contact',   'contact'  ],
 			]
 		}
 	},
@@ -93,7 +93,12 @@ export default {
 			const url = window.location.pathname
 
 			for (let [component, path] of [...this.pages, ['Home', '']]) {
-				if (url == path || url.startsWith(path + '/')) return component
+				if (
+					url == path || url == `${path}/` || url == `/${path}` ||
+					url.startsWith(`${path}/`) || url.startsWith(`/${path}/`)
+				) {
+					return component
+				}
 			}
 		},
 
