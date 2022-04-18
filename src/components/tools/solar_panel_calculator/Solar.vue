@@ -111,13 +111,20 @@ export default {
 
 	computed: {
 		suncalc_url: function() {
-			return 'https://suncalc.org/'
+			const date = this.getDate()
+			const url  = `https://suncalc.org/#/${this.latitude},${this.longitude},12/${date}/${this.sunTime}/1/3`
+
+			return url
 		}
 	},
 
 	methods: {
-		getSunCalcUrl: function(latitude, longitude, date, time) {
-			return `https://suncalc.org/#/${latitude},${longitude},12/${date}/${time}/1/3`
+		getDate: function() {
+			return new Date().toISOString().split('T')[0].replace(/-/g, '.')
+		},
+
+		getSunCalcUrl: function() {
+			return this.suncalc_url
 		},
 
 		setLocation: function() {
@@ -153,11 +160,12 @@ export default {
 						maximumAge: 0
 					}
 			} else {
-				alert('Geolocation is not supported by this browser.')
+				alert('Geolocation is not supported by this browser')
 				document.getElementById('set-location').parentNode.remove()
 			}
 		},
 
+		// https://github.com/mourner/suncalc/
 		getSunAngle: function(date, lat, lng) {
 			const dayMs = 1000 * 60 * 60 * 24 // 1 day in milliseconds
 			const J1970 = 2440588             // Julian day at 1970-01-01
@@ -190,23 +198,22 @@ export default {
 		calculate: function() {
 			const panel_rows   = this.panelRows
 			const panel_length = this.panelLength                // l
-			const panel_angle  = this.panelAngle * Math.PI / 180 // phi
+			const panel_angle  = this.panelAngle * Math.PI / 180 // φ
 
 			const latitude     = this.latitude
 			const longitude    = this.longitude
 			const sun_time     = this.sunTime
 
-			const date_today   = new Date().toISOString().slice(0, 10).replace(/-/g, '.')
-			const suncalc_url  = this.getSunCalcUrl(latitude, longitude, date_today, sun_time)
+			const date_today   = this.getDate()
+			const suncalc_url  = this.suncalc_url
 
-			const date_time = new Date(`${date_today} ${sun_time}`)
-			const sun_angle = this.getSunAngle(date_time, latitude, longitude)
+			const date_time    = new Date(`${date_today} ${sun_time}`)
+			const sun_angle    = this.getSunAngle(date_time, latitude, longitude) // θ
 
-			const panel_height = panel_length * Math.sin(panel_angle) // h = l * sin(phi)
-			const panel_width  = panel_length * Math.cos(panel_angle) // x = l * cos(phi)
-			const head_to_feet = panel_height / Math.tan(sun_angle)   // v = h / tan(theta)
+			const panel_height = panel_length * Math.sin(panel_angle) // h = l * sin(φ)
+			const panel_width  = panel_length * Math.cos(panel_angle) // x = l * cos(φ)
+			const head_to_feet = panel_height / Math.tan(sun_angle)   // v = h / tan(θ)
 			const feet_to_feet = head_to_feet + panel_width           // d = v + x
-			console.log(head_to_feet, feet_to_feet)
 
 			const total_length = Math.max(0, (panel_rows - 1) * feet_to_feet + panel_width)
 
