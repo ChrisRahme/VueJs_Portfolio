@@ -3,6 +3,9 @@ import { createRouter } from 'vue-router'
 
 import App from './App.vue'
 
+import axios    from 'axios'
+import VueAxios from 'vue-axios'
+
 // import 'jquery/dist/jquery'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -44,4 +47,5 @@ const routes = [
 createApp(App)
 	// .mixin(mixin_theme)
 	.component('font-awesome-icon', FontAwesomeIcon)
+	.use(VueAxios, axios)
 	.mount('#app')
