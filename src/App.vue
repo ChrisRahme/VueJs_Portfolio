@@ -6,6 +6,8 @@
 		<Home      class="Vue" v-if="page == 'Home'"/>
 		<Portfolio class="Vue" v-if="page == 'Portfolio'"/>
 		<Contact   class="Vue" v-if="page == 'Contact'"/>
+
+		<Solar     class="Vue" v-if="page == 'Solar'"/>
 	</main>
 
 	<Footer/>
@@ -53,23 +55,29 @@ import Home from './components/main/home/Home.vue'
 import Portfolio from './components/main/portfolio/Portfolio.vue'
 import Contact from './components/main/contact/Contact.vue'
 
+import Solar from './components/tools/solar_panel_calculator/Solar.vue'
+
 export default {
 	components: {
-		Header,
-		Home,
-		Portfolio,
-		Contact,
-		Footer,
+		Header, Footer,
+		Home, Portfolio, Contact,
+		Solar
 	},
 
 	data() {
 		return {
 			rerender: 0,
 			pages: [
-				//Title        URL         Show
-				['Home',      'home'     , true],
-				['Portfolio', 'portfolio', true],
-				['Contact',   'contact'  , true],
+				//Title        URL                            Show
+				['Home',      'home'     ,                    true ],
+				['Portfolio', 'portfolio',                    true ],
+				['Contact',   'contact'  ,                    true ],
+
+				['Home',      'main/home'     ,               false],
+				['Portfolio', 'main/portfolio',               false],
+				['Contact',   'main/contact'  ,               false],
+
+				['Solar',     'tools/solar_panel_calculator', false],
 			]
 		}
 	},

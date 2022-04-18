@@ -31,8 +31,8 @@
 				<ul class="navbar-nav links">
 					<li class="nav-item" v-for="(link, l_idx) in this.$root.pages" :key="l_idx">
 						<span v-if="link[2]">
-							<a class="nav-link disabled"                 v-if="link[0] == this.$root.page">{{link[0]}}</a>
-							<a class="nav-link"          :href="link[1]" v-else                           >{{link[0]}}</a>
+							<a class="nav-link disabled"  v-if="link[0] == this.$root.page">{{link[0]}}</a>
+							<a class="nav-link"          :href="'/'+link[1]" v-else        >{{link[0]}}</a>
 						</span>
 					</li>
 				</ul>
