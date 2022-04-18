@@ -88,9 +88,9 @@ html > body a:focus {
 
 /** BUTTONS **/
 html > body .btn {
-	color: var(--color-light) !important;
-	transition: var(--transition-cubic) !important;
-	border: none !important;
+	color: var(--color-light);
+	transition: var(--transition-cubic);
+	border: none;
 }
 
 html > body .btn-primary {
