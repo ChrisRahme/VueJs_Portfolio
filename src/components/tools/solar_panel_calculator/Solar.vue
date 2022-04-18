@@ -209,15 +209,15 @@ export default {
 			const suncalc_url  = this.getSunCalcUrl(latitude, longitude, date_today, sun_time)
 
 			const date_time = new Date(`${date_today} ${sun_time}`)
-			console.log(date_time)
 			const sun_angle = this.getSunAngle(date_time, latitude, longitude)
 
 			const panel_height = panel_length * Math.sin(panel_angle) // h = l * sin(phi)
 			const panel_width  = panel_length * Math.cos(panel_angle) // x = l * cos(phi)
 			const head_to_feet = panel_height / Math.tan(sun_angle)   // v = h / tan(theta)
 			const feet_to_feet = head_to_feet + panel_width           // d = v + x
+			console.log(head_to_feet, feet_to_feet)
 
-			const total_length = (panel_rows - 1) * feet_to_feet + panel_width
+			const total_length = Math.max(0, (panel_rows - 1) * feet_to_feet + panel_width)
 
 			this.panelHeight = panel_height.toFixed(2)
 			this.panelWidth  = panel_width.toFixed(2)
