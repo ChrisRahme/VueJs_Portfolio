@@ -19,39 +19,39 @@
 
 			<div id="calculator">
 				<div class="row">
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="panel-rows">Number of panel rows</label>
 						<input id="panel-rows" type="number" class="form-control" placeholder="3" v-model="panelRows" @change="calculate">
 					</div>
 
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="panel-length">Solar panel length</label>
 						<input id="panel-length" type="number" class="form-control" placeholder="2.23" v-model="panelLength" @change="calculate">
 					</div>
 
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="panel-angle">Solar panel angle</label>
 						<input id="panel-angle" type="number" class="form-control" placeholder="30" v-model="panelAngle" @change="calculate">
 					</div>
 
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
+						<label for="sun-time">Time of lowest Sun angle</label>
+						<input id="sun-time" type="time" class="form-control" placeholder="07:30" v-model="sunTime">
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="latitude">Latitude</label>
 						<input id="latitude" type="number" class="form-control" placeholder="33.9214" v-model="latitude" @change="calculate">
 					</div>
 
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="longitude">Longitude</label>
 						<input id="longitude" type="number" class="form-control" placeholder="35.8934" v-model="longitude" @change="calculate">
 					</div>
 
-					<div class="col-12 col-md-6 col-lg-4 form-group">
+					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="set-location">&nbsp;</label><br>
 						<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation">Set to my location</button>
-					</div>
-
-					<div class="col-12 col-md-6 col-lg-4 form-group">
-						<label for="sun-time">Time of lowest Sun angle</label>
-						<input id="sun-time" type="time" class="form-control" placeholder="07:30" v-model="sunTime">
 					</div>
 				</div>
 			</div>
@@ -167,6 +167,35 @@ export default {
 			}
 		},
 
+		getSunAngle: function(date, lat, lng) {
+			const dayMs = 1000 * 60 * 60 * 24 // 1 day in milliseconds
+			const J1970 = 2440588             // Julian day at 1970-01-01
+			const J2000 = 2451545             // Julian day at 2000-01-01
+
+			const rad   = Math.PI / 180 // degree to radians
+			const deg   = 180 / Math.PI // radians to degrees
+
+			const lw  = -lng * rad
+			const phi = +lat * rad
+
+			const days = date.valueOf() / dayMs - 0.5 + J1970 - J2000
+
+			const solar_mean_anomaly = (357.5291 + 0.98560028 * days) * rad
+			const center             = (1.9148 * Math.sin(solar_mean_anomaly) + 0.02 * Math.sin(2*solar_mean_anomaly) + 0.0003 * Math.sin(3*solar_mean_anomaly)) * rad
+			const perihelion         = 102.9372 * rad
+			const ecliptic_longitude = solar_mean_anomaly + center + perihelion + Math.PI
+
+			const obliquity       = 23.4397 * rad
+			const declination     = Math.asin(Math.sin(obliquity) * Math.sin(ecliptic_longitude))
+			const right_ascension = Math.atan(Math.cos(obliquity) * Math.sin(ecliptic_longitude))
+
+			const sidereal_time = (280.16 + 360.9856235 * days) * rad - lw
+			const H             = sidereal_time - right_ascension
+			const altitude      = Math.asin(Math.sin(phi) * Math.sin(declination) + Math.cos(phi) * Math.cos(declination) * Math.cos(H))
+
+			return altitude * deg
+		},
+
 		calculate: function() {
 			const panel_rows   = this.panelRows
 			const panel_length = this.panelLength                // l
@@ -179,20 +208,9 @@ export default {
 			const date_today   = new Date().toISOString().slice(0, 10).replace(/-/g, '.')
 			const suncalc_url  = this.getSunCalcUrl(latitude, longitude, date_today, sun_time)
 
-			console.log(suncalc_url)
-			this.axios({
-				method: 'get',
-				url: 'https://www.suncalc.org/#/33.9214,35.8934,11/2022.04.18/07:30/1000/3',
-				headers: { }
-			}).then((response) => {
-				alert('yay')
-				console.log(response.data)
-			}).catch((error) => {
-				alert('boo')
-				console.log(error)
-			})
-
-			const sun_angle = 20 // TODO try to scrape suncalc for altitude field
+			const date_time = new Date(`${date_today} ${sun_time}`)
+			console.log(date_time)
+			const sun_angle = this.getSunAngle(date_time, latitude, longitude)
 
 			const panel_height = panel_length * Math.sin(panel_angle) // h = l * sin(phi)
 			const panel_width  = panel_length * Math.cos(panel_angle) // x = l * cos(phi)
