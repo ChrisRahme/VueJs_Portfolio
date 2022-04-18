@@ -2,21 +2,6 @@
 <div id="Solar">
 	<section id="Solar1">
 		<div class="container">
-			<p class="mb-4">
-				To get the lowest angle of the Sun in your location, go to
-				<a
-					href="https://www.suncalc.org/#/34.2573,35.997,12/2022.04.17/08:00/1/3"
-					target="_blank"
-				>SunCalc.org</a>.
-				<br><br>
-				Place your cursor on the location on the map, and enter the time where the Sun is
-				at the lowest angle, but still in front of the solar panels.
-				<br><br>
-				Then, check the value for "Altitude" in the left panel and enter it in the "Lowest
-				Sun angle" input field below.
-				<br><br>
-			</p>
-
 			<div id="calculator">
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
@@ -50,7 +35,7 @@
 					</div>
 
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-						<label for="set-location">&nbsp;</label><br>
+						<label for="set-location">&nbsp;</label>
 						<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation">Set to my location</button>
 					</div>
 				</div>
@@ -148,18 +133,24 @@ export default {
 					function (error) {
 						switch(error.code) {
 							case error.PERMISSION_DENIED:
-								alert('User denied the request for Geolocation.')
+								alert('Geolocation request denied')
 								break
 							case error.POSITION_UNAVAILABLE:
-								alert('Location information is unavailable.')
+								alert('Location is unavailable')
 								break
 							case error.TIMEOUT:
-								alert('The request to get user location timed out.')
+								alert('Request timed out')
 								break
 							case error.UNKNOWN_ERROR:
-								alert('An unknown error occurred.')
+								alert('Unknown error occurred')
 								break
 						}
+					},
+
+					{
+						enableHighAccuracy: true,
+						timeout: 10000,
+						maximumAge: 0
 					}
 			} else {
 				alert('Geolocation is not supported by this browser.')
