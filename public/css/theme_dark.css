@@ -11,4 +11,19 @@
 
 	--color-primary-light: #306030; /* Mix with --color-white */
 	--color-primary-dark:  #B0E0B0; /* Mix with --color-black */
+
+	--color-secondary-light: #603060;
+	--color-secondary-dark: #E0B0E0;
+
+	--color-info-light: #306060;
+	--color-info-dark: #B0E0E0;
+
+	--color-success-light: #303060;
+	--color-success-dark: #B0B0E0;
+
+	--color-warning-light: #606030;
+	--color-warning-dark: #E0E0B0;
+
+	--color-danger-light: #603030;
+	--color-danger-dark: #E0B0B0;
 }

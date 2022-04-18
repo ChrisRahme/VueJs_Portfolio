@@ -20,10 +20,16 @@
 	--color-complementary-mono: #A732A7;
 
 
+	--color-secondary: #C060C0;
+	--color-info:      #60C0C0;
+	--color-success:   #6060C0;
+	--color-warning:   #C0C060;
+	--color-danger:    #C06060;
+
+
 	--transition-ease:  all 0.5s ease;
 	--transition-cubic: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 
 
 html > body {
@@ -38,7 +44,17 @@ html > body {
 }
 
 
+/** GENERAL **/
+.hidden {
+	display: none !important;
+}
 
+.invisible {
+	visibility: hidden !important;
+}
+
+
+/** SCROLLBAR **/
 ::-webkit-scrollbar {
 	width: 8px;
 }
@@ -51,36 +67,94 @@ html > body {
 	background: var(--color-darker-gray);
 }
 
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:focus {
 	background: var(--color-primary-light);
 }
 
 
-
+/** LINKS **/
 html > body a {
 	text-decoration: none;
 	color: var(--color-primary);
 	transition: var(--transition-cubic);
 }
 
-html > body a:hover {
+html > body a:hover,
+html > body a:focus {
 	color: var(--color-primary-light);
 }
 
 
-
-.hidden {
-	display: none !important;
+/** BUTTONS **/
+html > body .btn {
+	color: var(--color-light) !important;
+	transition: var(--transition-cubic) !important;
+	border: none !important;
 }
 
 html > body .btn-primary {
 	background-color: var(--color-primary);
 	border-color: var(--color-primary);
-	color: var(--color-light);
-	transition: var(--transition-cubic);
 }
 
-html > body .btn-primary:hover {
+html > body .btn-primary:hover,
+html > body .btn-primary:focus {
 	background-color: var(--color-primary-light);
 	border-color: var(--color-primary-light);
+}
+
+html > body .btn-info {
+	background-color: var(--color-info);
+	border-color: var(--color-info);
+}
+
+html > body .btn-info:hover,
+html > body .btn-info:focus {
+	background-color: var(--color-info-light);
+	border-color: var(--color-info-light);
+}
+
+html > body .btn-secondary {
+	background-color: var(--color-secondary);
+	border-color: var(--color-secondary);
+}
+
+html > body .btn-secondary:hover,
+html > body .btn-secondary:focus {
+	background-color: var(--color-secondary-light);
+	border-color: var(--color-secondary-light);
+}
+
+html > body .btn-success {
+	background-color: var(--color-success);
+	border-color: var(--color-success);
+}
+
+html > body .btn-success:hover,
+html > body .btn-success:focus {
+	background-color: var(--color-success-light);
+	border-color: var(--color-success-light);
+}
+
+html > body .btn-warning {
+	background-color: var(--color-warning);
+	border-color: var(--color-warning);
+}
+
+html > body .btn-warning:hover,
+html > body .btn-warning:focus {
+	background-color: var(--color-warning-light);
+	border-color: var(--color-warning-light);
+}
+
+html > body .btn-danger {
+	background-color: var(--color-danger);
+	border-color: var(--color-danger);
+}
+
+html > body .btn-danger:hover,
+html > body .btn-danger:focus {
+	background-color: var(--color-danger-light);
+	border-color: var(--color-danger-light);
 }
