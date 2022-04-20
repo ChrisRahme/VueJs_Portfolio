@@ -2,7 +2,7 @@
 <div id="Solar">
 	<section id="Solar1">
 		<div class="container">
-			<div id="calculator">
+			<div id="calculator-inputs">
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="panel-rows">Number of panel rows</label>
@@ -36,33 +36,28 @@
 
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
 						<label for="set-location">&nbsp;</label>
-						<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation">Set to my location</button>
+						<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation">Set to current location</button>
 					</div>
 				</div>
 			</div>
 
-			<table id="results">
-				<tr id="panel-height">
+			<table id="calculator-outputs">
+				<tr>
 					<th>Panel height</th>
 					<td><input disabled v-model="panelHeight"></td>
-				</tr>
-				<tr id="panel-width">
+				</tr><tr>
 					<th>Panel width</th>
 					<td><input disabled v-model="panelWidth"></td>
-				</tr>
-				<tr id="sun-angle">
+				</tr><tr>
 					<th>Lowest Sun angle</th>
 					<td><input disabled v-model="sunAngle"></td>
-				</tr>
-				<tr id="head-to-feet">
+				</tr><tr>
 					<th>Head to feet</th>
 					<td><input disabled v-model="headToFeet"></td>
-				</tr>
-				<tr id="feet-to-feet">
+				</tr><tr>
 					<th>Feet to feet</th>
 					<td><input disabled v-model="feetToFeet"></td>
-				</tr>
-				<tr id="total-length">
+				</tr><tr>
 					<th>Total length</th>
 					<td><input disabled v-model="totalLength"></td>
 				</tr>
@@ -75,8 +70,26 @@
 
 
 <style scoped>
-#Solar #calculator > .row > div.form-group {
+#Solar1 {
+	text-align: left;
+}
+
+#Solar1 #calculator-inputs > .row > div.form-group {
 	margin-bottom: 2rem;
+}
+
+#Solar1 #calculator-outputs > tr > th {
+	color: var(--color-primary);
+}
+
+#Solar1 #calculator-outputs > tr > td {
+	padding-left: 1rem;
+}
+
+#Solar1 #calculator-outputs > tr > td > input {
+	color: var(--color-black);
+    background: transparent;
+    border: none;
 }
 </style>
 
