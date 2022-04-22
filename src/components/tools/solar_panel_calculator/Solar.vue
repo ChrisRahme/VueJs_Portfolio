@@ -100,7 +100,7 @@ export default {
 	data() {
 		return {
 			// User inputs
-			panelRows: 3,
+			panelRows: null,
 			panelLength: 2.23,
 			panelAngle: 30,
 			latitude: 33.9214,
@@ -176,6 +176,8 @@ export default {
 				alert('Geolocation is not supported by this browser')
 				document.getElementById('set-location').parentNode.remove()
 			}
+
+			this.calculate()
 		},
 
 		// https://github.com/mourner/suncalc/
@@ -223,10 +225,10 @@ export default {
 			const date_time    = new Date(`${date_today} ${sun_time}`)
 			const sun_angle    = this.getSunAngle(date_time, latitude, longitude) // θ
 
-			const panel_height = panel_length * Math.sin(panel_angle) // h = l * sin(φ)
-			const panel_width  = panel_length * Math.cos(panel_angle) // x = l * cos(φ)
-			const head_to_feet = panel_height / Math.tan(sun_angle)   // v = h / tan(θ)
-			const feet_to_feet = head_to_feet + panel_width           // d = v + x
+			const panel_height = panel_length * Math.sin(panel_angle)              // h = l * sin(φ)
+			const panel_width  = panel_length * Math.cos(panel_angle)              // w = l * cos(φ)
+			const head_to_feet = panel_width  + panel_height / Math.tan(sun_angle) // v = w + h / tan(θ)
+			const feet_to_feet = head_to_feet + panel_width                        // d = v + w
 
 			const total_length = Math.max(0, (panel_rows - 1) * feet_to_feet + panel_width)
 
