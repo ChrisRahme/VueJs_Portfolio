@@ -38,11 +38,9 @@
 		<div id="credits">
 			<p>
 				Logos made by <a href="https://fontawesome.com">Font Awesome</a> using <a href="https://www.npmjs.com/package/@fortawesome/vue-fontawesome">vue-fontawesome</a>
-			</p>
-			<p>
+			</p><p>
 				Icons made by <a href="https://freepik.com">Freepik</a> from <a href="https://flaticon.com">flaticon.com</a>
-			</p>
-			<p>
+			</p><br><p>
 				Copyright &copy; 2022 <a href="/">Chris Rahmé</a>
 			</p>
 		</div>
@@ -169,6 +167,11 @@
 }
 
 
+
+#Footer #credits {
+	font-size: 0.9rem;
+	line-height: 1.25rem;
+}
 
 #Footer #credits p {
 	margin: 0;
