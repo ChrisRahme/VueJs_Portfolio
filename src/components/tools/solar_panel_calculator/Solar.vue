@@ -3,70 +3,102 @@
 	<section id="Solar1">
 		<div class="container">
 			<div id="calculator-inputs" class="row">
-				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="panel-rows">Number of panel rows</label>
-					<input id="panel-rows" type="number" class="form-control" placeholder="3" v-model="panel_rows" @change="calculate">
+				<div class="col-12 col-md-6 col-lg-4 col-xl-4 form-group">
+					<label for="panel-rows">
+						<p>Number of panel rows</p>
+					</label>
+					<input id="panel-rows" type="number" class="form-control" min="0" placeholder="3" v-model="panel_rows" @change="calculate">
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-4 col-xl-4 form-group">
+					<label for="panel-length">
+						<p>Solar panel length</p>
+					</label>
+					<input id="panel-length" type="number" class="form-control" min="0" placeholder="2.23" v-model="panel_length" @change="calculate">
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-4 col-xl-4 form-group">
+					<label for="panel-angle">
+						<p>Solar panel angle</p>
+						<p>0&deg; to 90&deg;</p>
+					</label>
+					<input id="panel-angle" type="number" class="form-control" min="0" max="90" placeholder="30" v-model="panel_angle" @input="calculate">
+					<!-- <input id="panel-angle" type="range" class="form-range" min="0" max="90" step="0.5" placeholder="30" v-model="panel_angle" @input="calculate"> -->
 				</div>
 
 				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="panel-length">Solar panel length</label>
-					<input id="panel-length" type="number" class="form-control" placeholder="2.23" v-model="panel_length" @change="calculate">
+					<label for="sun-time">
+						<p>Time of lowest Sun angle</p>
+					</label>
+					<input id="sun-time" type="time" class="form-control" placeholder="07:30" v-model="sun_time" @input="calculate">
 				</div>
 
 				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="panel-angle">Solar panel angle</label>
-					<input id="panel-angle" type="number" class="form-control" placeholder="30" v-model="panel_angle" @change="calculate">
+					<label for="latitude">
+						<p>Latitude</p>
+						<p>-80&deg; to 80&deg;</p>
+					</label>
+					<input id="latitude" type="number" class="form-control" min="-80" max="80" placeholder="35.5" v-model="latitude" @input="calculate">
+					<!-- <input id="latitude" type="range" class="form-range" min="-80" max="80" step="0.1" placeholder="35.5" v-model="latitude" @input="calculate"> -->
 				</div>
 
 				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="sun-time">Time of lowest Sun angle</label>
-					<input id="sun-time" type="time" class="form-control" placeholder="07:30" v-model="sun_time">
+					<label for="longitude">
+						<p>Longitude</p>
+						<p>-180&deg; to 180&deg;</p>
+					</label>
+					<input id="longitude" type="number" class="form-control"  min="-180" max="180" placeholder="53.3" v-model="longitude" @input="calculate">
+					<!-- <input id="longitude" type="range" class="form-range" min="-180" max="180" step="0.1" placeholder="53.3" v-model="longitude" @input="calculate"> -->
 				</div>
 
 				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="latitude">Latitude</label>
-					<input id="latitude" type="number" class="form-control" placeholder="33.9214" v-model="latitude" @change="calculate">
-				</div>
-
-				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="longitude">Longitude</label>
-					<input id="longitude" type="number" class="form-control" placeholder="35.8934" v-model="longitude" @change="calculate">
-				</div>
-
-				<div class="col-12 col-md-6 col-lg-4 col-xl-3 form-group">
-					<label for="set-location">&nbsp;</label>
-					<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation">Set to current location</button>
+					<label for="set-location">
+						<p>&nbsp;</p>
+					</label>
+					<button id="set-location" type="button" class="btn btn-primary" placeholder="0" style="width: 100%" @click="setLocation" @input="calculate">Set to current location</button>
 				</div>
 			</div>
 
 			<div id="calculator-outputs" class="row">
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="panel-height">Panel height</label>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="panel-height">
+						<p>Panel height</p>
+					</label>
 					<input id="panel-height" type="number" class="form-control" v-model="panel_height" disabled>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="panel-width">Panel width</label>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="panel-width">
+						<p>Panel width</p>
+					</label>
 					<input id="panel-width" type="number" class="form-control" v-model="panel_width" disabled>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="sun-angle">Sun angle</label>
-					<input id="sun-angle" type="number" class="form-control" v-model="sun_angle" disabled>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="sun-angle">
+						<p>Sun angle</p>
+					</label>
+					<input id="sun-angle" type="text" class="form-control" v-model="sun_angle_str" disabled>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="head-to-feet">Head to feet</label>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="head-to-feet">
+						<p>Head to feet</p>
+					</label>
 					<input id="head-to-feet" type="number" class="form-control" v-model="head_to_feet" disabled>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="feet-to-feet">Feet to feet</label>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="feet-to-feet">
+						<p>Feet to feet</p>
+					</label>
 					<input id="feet-to-feet" type="number" class="form-control" v-model="feet_to_feet" disabled>
 				</div>
 
-				<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 form-group">
-					<label for="total-length">Total Length</label>
+				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+					<label for="total-length">
+						<p>Total Length</p>
+					</label>
 					<input id="total-length" type="number" class="form-control" v-model="total_length" disabled>
 				</div>
 			</div>
@@ -100,13 +132,29 @@
 #Solar1 #calculator-inputs label,
 #Solar1 #calculator-outputs label {
 	color: var(--color-primary);
+	display: block;
 }
+
+#Solar1 #calculator-inputs label > p:nth-child(1),
+#Solar1 #calculator-outputs label > p:nth-child(1) {
+	float: left;
+	margin: 0 auto 0 0;
+	font-weight: bold;
+}
+
+#Solar1 #calculator-inputs label > p:nth-child(2),
+#Solar1 #calculator-outputs label > p:nth-child(2) {
+	float: right;
+	margin: 0 0 0 auto;
+	color: var(--color-black);
+}
+
 #Solar1 #calculator-inputs label {
 	margin: 0 0 0.5rem 0;
 }
 
 #Solar1 #calculator-outputs label {
-	margin: 0;
+	margin: 0 0 0 0;
 }
 
 #Solar1 #calculator-inputs input,
@@ -117,6 +165,13 @@
 #Solar1 #calculator-outputs input {
 	color: var(--color-dark);
     background: transparent;
+}
+
+/* MEDIUM SCREENS - */
+@media (max-width: 768px) {
+	#Solar1 #drawing {
+		display: none;
+	}
 }
 
 #Solar1 #drawing #canvas {
@@ -147,16 +202,15 @@ export default {
 			sun_time     : '07:30',
 
 			// Calculated values
-			panel_height : 0,
-			panel_width  : 0,
-			sun_angle    : 0,
-			head_to_feet : 0,
-			feet_to_feet : 0,
-			total_length : 0,
+			panel_height  : 0,
+			panel_width   : 0,
+			sun_angle     : 0,
+			sun_angle_str : '',
+			head_to_feet  : 0,
+			feet_to_feet  : 0,
+			total_length  : 0,
 
 			// Graph
-			applet       : null,
-			graph        : null,
 			canvas 	     : null,
 		}
 	},
@@ -166,7 +220,6 @@ export default {
 	},
 
 	mounted() {
-		this.initApplet()
 		this.calculate()
 	},
 
@@ -184,47 +237,6 @@ export default {
 	},
 
 	methods: {
-		initApplet: function() {
-			// https://wiki.geogebra.org/en/Reference:GeoGebra_App_Parameters
-			const _this = this
-
-			const applet = new GGBApplet({
-				appName               : 'graphing',
-
-				// width              : 800,
-				height                : 600,
-
-				scaleContainerClass   : 'ggb-scale-container container',
-				scale                 : 1,
-
-				// enableRightClick      : false,
-				enableLabelDrags      : false,
-				enableShiftDragZoom   : false,
-				enableUndoRedo 	      : false,
-				enableCAS             : false,
-
-				showZoomButtons       : false,
-				showMenuBar           : false,
-				showToolBar           : false,
-				showToolBarHelp       : false,
-				showAlgebraInput      : false,
-				showResetIcon         : false,
-				showAnimationButton   : false,
-				showFullscreenButton  : false,
-				showSuggestionButtons : false,
-				showStartTooltip      : false,
-
-				appletOnLoad(api) {
-					_this.graph = api
-					_this.draw()
-				}
-			}, true)
-
-			applet.inject('graph')
-
-			this.applet = applet
-		},
-
 		getDate: function() {
 			return new Date().toISOString().split('T')[0].replace(/-/g, '.')
 		},
@@ -305,43 +317,39 @@ export default {
 		},
 
 		calculate: function() {
-			const panel_rows   = this.panel_rows
-			const panel_length = this.panel_length // l
-			const panel_angle  = this.panel_angle  // φ
+			this.validateInputs()
 
-			const latitude     = this.latitude
-			const longitude    = this.longitude
-			const sun_time     = this.sun_time
+			const rad = Math.PI / 180 // degree to radians
 
-			const date_today   = this.getDate()
-			const suncalc_url  = this.suncalc_url
+			const date_time      = new Date(`${this.getDate()} ${this.sun_time}`)
+			const true_sun_angle = this.getSunAngle(date_time, this.latitude, this.longitude)
+			const sun_angle      = Math.max(10, true_sun_angle)
 
-			const date_time    = new Date(`${date_today} ${sun_time}`)
-			const sun_angle    = this.getSunAngle(date_time, latitude, longitude) // θ
+			const panel_rad = this.panel_angle * rad // φ
+			const sun_rad   = sun_angle        * rad // θ
 
-			const panel_rad = panel_angle * Math.PI / 180
-			const sun_rad   = sun_angle   * Math.PI / 180
+			const panel_height = this.panel_length * Math.sin(panel_rad) // h = l * sin(φ)
+			const panel_width  = this.panel_length * Math.cos(panel_rad) // w = l * cos(φ)
 
-			const panel_height = panel_length * Math.sin(panel_rad)              // h = l * sin(φ)
-			const panel_width  = panel_length * Math.cos(panel_rad)              // w = l * cos(φ)
-			const head_to_feet = panel_width  + panel_height / Math.tan(sun_rad) // v = w + h / tan(θ)
-			const feet_to_feet = head_to_feet + panel_width                      // d = v + w
+			const head_to_feet = panel_height / Math.tan(sun_rad) // v = h / tan(θ)
+			const feet_to_feet = head_to_feet + panel_width       // d = v + w
+			const total_length = Math.max(0, (this.panel_rows - 1) * feet_to_feet + panel_width)
 
-			const total_length = Math.max(0, (panel_rows - 1) * feet_to_feet + panel_width)
+			this.panel_height  = panel_height.toFixed(2)
+			this.panel_width   = panel_width.toFixed(2)
+			this.sun_angle     = sun_angle.toFixed(2)
+			this.sun_angle_str = (sun_angle == true_sun_angle ? '' : '<') + this.sun_angle
+			this.head_to_feet  = head_to_feet.toFixed(2)
+			this.feet_to_feet  = feet_to_feet.toFixed(2)
+			this.total_length  = total_length.toFixed(2)
 
-			this.panel_height = panel_height.toFixed(2)
-			this.panel_width  = panel_width.toFixed(2)
-			this.sun_angle    = sun_angle.toFixed(2)
-			this.head_to_feet = head_to_feet.toFixed(2)
-			this.feet_to_feet = feet_to_feet.toFixed(2)
-			this.total_length = total_length.toFixed(2)
+			this.validateOutputs()
 
 			this.draw()
 		},
 
 		draw: function() {
 			const _this = this
-
 
 			// Variables
 			const n = this.panel_rows
@@ -360,7 +368,7 @@ export default {
 			const canvas    = document.getElementById('canvas')
 			const container = canvas.parentNode
 			const width  = d+w //container.offsetWidth
-			const height = scale
+			const height = scale * l
 
 			// Drawing
 			const script = p5 => {
@@ -376,21 +384,39 @@ export default {
 					p5.scale(1, -1)
   					p5.translate(0, -height)
 
-
+					// Panels
 					p5.stroke(0, 0, 200)
 					p5.strokeWeight(4)
-					p5.line(0, 0, w, h) // Panel 1
-					p5.line(d, 0, d+w, h) // Panel 2
+					p5.line(0, 0, w,   h)
+					p5.line(d, 0, d+w, h)
 
+					// Sunlight
 					p5.stroke(220, 220, 0)
 					p5.strokeWeight(1)
-					p5.line(w-scale*v, h+scale*h, d, 0) // Sunlight - (w-kv, h+kh, d, 0)
+					p5.line(w-scale*v, h+scale*h, d, 0) // line(w-kv, h+kh, d, 0)
 				}
 			}
 
 			canvas.innerHTML = ''
 			this.canvas = new P5(script, 'canvas')
 		},
+
+		validateInputs: function() {
+			this.panel_rows   = Math.max(0, parseInt(this.panel_rows))
+			this.panel_length = Math.max(0, parseFloat(this.panel_length))
+			this.panel_angle  = Math.max(0, Math.min(90, parseFloat(this.panel_angle)))
+			this.latitude     = Math.max(-90, Math.min(90, parseFloat(this.latitude)))
+			this.longitude    = Math.max(-180, Math.min(180, parseFloat(this.longitude)))
+		},
+
+		validateOutputs: function() {
+			this.panel_height = Math.max(0, parseFloat(this.panel_height))
+			this.panel_width  = Math.max(0, parseFloat(this.panel_width))
+			this.sun_angle    = Math.max(0, parseFloat(this.sun_angle))
+			this.head_to_feet = Math.max(0, parseFloat(this.head_to_feet))
+			this.feet_to_feet = Math.max(0, parseFloat(this.feet_to_feet))
+			this.total_length = Math.max(0, parseFloat(this.total_length))
+		}
 	}
 }
 </script>
