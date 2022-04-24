@@ -17,6 +17,7 @@
 		"bootstrap": "^5.1.1",
 		"editorconfig": "^0.15.3",
 		"jquery": "^3.6.0",
+		"p5": "^1.4.1",
 		"vue": "^3.2.6",
 		"vue-axios": "^3.4.1",
 		"vue-router": "^4.0.11"
