@@ -316,7 +316,7 @@ export default {
 			return altitude * deg
 		},
 
-		calculate: function() {
+		calculate: function(event) {
 			this.validateInputs()
 
 			const rad = Math.PI / 180 // degree to radians
@@ -343,7 +343,8 @@ export default {
 			this.feet_to_feet  = feet_to_feet.toFixed(2)
 			this.total_length  = total_length.toFixed(2)
 
-			this.validateOutputs()
+			if (event && ['panel-rows', 'panel-length'].includes(event.target.id))
+				return
 
 			this.draw()
 		},
@@ -407,15 +408,6 @@ export default {
 			this.panel_angle  = Math.max(0, Math.min(90, parseFloat(this.panel_angle)))
 			this.latitude     = Math.max(-90, Math.min(90, parseFloat(this.latitude)))
 			this.longitude    = Math.max(-180, Math.min(180, parseFloat(this.longitude)))
-		},
-
-		validateOutputs: function() {
-			this.panel_height = Math.max(0, parseFloat(this.panel_height))
-			this.panel_width  = Math.max(0, parseFloat(this.panel_width))
-			this.sun_angle    = Math.max(0, parseFloat(this.sun_angle))
-			this.head_to_feet = Math.max(0, parseFloat(this.head_to_feet))
-			this.feet_to_feet = Math.max(0, parseFloat(this.feet_to_feet))
-			this.total_length = Math.max(0, parseFloat(this.total_length))
 		}
 	}
 }
