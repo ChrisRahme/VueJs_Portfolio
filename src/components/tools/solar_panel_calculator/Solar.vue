@@ -7,7 +7,7 @@
 					<label for="panel-rows">
 						<p>Number of panel rows</p>
 					</label>
-					<input id="panel-rows" type="number" class="form-control" min="0" placeholder="3" v-model="panel_rows" @change="calculate">
+					<input id="panel-rows" type="number" class="form-control" min="1" placeholder="3" v-model="panel_rows" @change="calculate">
 				</div>
 
 				<div class="col-12 col-md-6 col-lg-4 col-xl-4 form-group">
@@ -60,42 +60,42 @@
 			</div>
 
 			<div id="calculator-outputs" class="row">
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="panel-height">
 						<p>Panel height</p>
 					</label>
 					<input id="panel-height" type="number" class="form-control" v-model="panel_height" disabled>
 				</div>
 
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="panel-width">
 						<p>Panel width</p>
 					</label>
 					<input id="panel-width" type="number" class="form-control" v-model="panel_width" disabled>
 				</div>
 
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="sun-angle">
 						<p>Sun angle</p>
 					</label>
 					<input id="sun-angle" type="text" class="form-control" v-model="sun_angle_str" disabled>
 				</div>
 
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="head-to-feet">
 						<p>Head to feet</p>
 					</label>
 					<input id="head-to-feet" type="number" class="form-control" v-model="head_to_feet" disabled>
 				</div>
 
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="feet-to-feet">
 						<p>Feet to feet</p>
 					</label>
 					<input id="feet-to-feet" type="number" class="form-control" v-model="feet_to_feet" disabled>
 				</div>
 
-				<div class="col-6 col-md-4 col-lg-3 col-xl-2 form-group">
+				<div class="col-6 col-md-4 col-lg-2 form-group">
 					<label for="total-length">
 						<p>Total Length</p>
 					</label>
@@ -403,7 +403,7 @@ export default {
 		},
 
 		validateInputs: function() {
-			this.panel_rows   = Math.max(0, parseInt(this.panel_rows))
+			this.panel_rows   = Math.max(1, parseInt(this.panel_rows))
 			this.panel_length = Math.max(0, parseFloat(this.panel_length))
 			this.panel_angle  = Math.max(0, Math.min(90, parseFloat(this.panel_angle)))
 			this.latitude     = Math.max(-90, Math.min(90, parseFloat(this.latitude)))
