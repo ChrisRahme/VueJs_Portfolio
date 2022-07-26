@@ -100,16 +100,6 @@ export default {
 				},
 
 				{
-					title: 'Tappy Raven',
-					links: [playLink('TappyRaven')],
-					feet: ['Android', 'Unity', 'C#'],
-					text: [
-						'FlappyBird-based game.',
-						'Took a day to code the game, took a week to upload it on the Play Store.',
-					],
-				},
-
-				{
 					title: 'Duolingo XP Farmer & Learner',
 					links: [gitLink('Duolingo_Bot')],
 					feet: ['Python', 'Selenium'],
@@ -125,6 +115,16 @@ export default {
 					text: [
 						'Send a URL to the API and it will return the type of that website (surface web and dark web).',
 						'This is just a proof of concept, more website types are needed.'
+					],
+				},
+
+				{
+					title: 'Tappy Raven',
+					links: [playLink('TappyRaven')],
+					feet: ['Android', 'Unity', 'C#'],
+					text: [
+						'FlappyBird-based game.',
+						'Took a day to code the game, took a week to upload it on the Play Store.',
 					],
 				},
 			]
