@@ -123,7 +123,8 @@ export default {
 					links: [gitLink('DarkWeb_Page_Classification')],
 					feet: ['Python', 'Flask', 'Scikit-Learn', 'TensorFlow'],
 					text: [
-						'Duolingo bot that automatically learns and completes courses.',
+						'Send a URL to the API and it will return the type of that website (surface web and dark web).',
+						'This is just a proof of concept, more website types are needed.'
 					],
 				},
 			]
