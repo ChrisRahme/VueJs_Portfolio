@@ -100,7 +100,7 @@ export default {
 							location: 'Saint-Joseph University of Beirut',
 							details: [
 								'Currently doing a Masters in Artificial Intelligence. Expecting to graduate mid-to-end 2022.',
-								'Courses learned: Computer Vision, NLP, Cybersecurity, Games.',
+								'Courses learned: Computer Vision, NLP, Cybersecurity, Games, Control Systems.',
 							]
 						},
 						{
