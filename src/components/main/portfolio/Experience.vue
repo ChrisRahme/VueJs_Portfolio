@@ -57,7 +57,7 @@ export default {
 								'Major tasks:',
 								'- Google Chat chatbot for internal use (Google Apps, NodeJS).',
 								'- Cisco phone call recording module for web app (Laravel, Node-RED, Asterisk).',
-								'- Audio sentiment analysis module for call recording (Python).',
+								'- Audio sentiment analysis submodule for call recording module (Python).',
 								'- CRUD and CRM app to manage clients\'s profile and licenses (Python Django, Node-RED).'
 							]
 						},
