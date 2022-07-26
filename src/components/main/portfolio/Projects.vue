@@ -118,14 +118,14 @@ export default {
 					],
 				},
 
-				// /*{
-				// 	title: 'DarkWeb Page Classification API',
-				// 	links: [gitLink('DarkWeb_Page_Classification')],
-				// 	feet: ['Python', 'Flask', 'Scikit-Learn', 'TensorFlow'],
-				// 	text: [
-				// 		'Duolingo bot that automatically learns and completes courses.',
-				// 	],
-				// },*/
+				{
+					title: 'DarkWeb Page Classification API',
+					links: [gitLink('DarkWeb_Page_Classification')],
+					feet: ['Python', 'Flask', 'Scikit-Learn', 'TensorFlow'],
+					text: [
+						'Duolingo bot that automatically learns and completes courses.',
+					],
+				},
 			]
 		}
   	},
