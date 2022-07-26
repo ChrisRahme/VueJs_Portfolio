@@ -50,7 +50,7 @@ export default {
 					details: [
 						'Python, Java, C#',
 						'Rasa',
-						'Unity'
+						'Unity',
 					]
 				},
 				{
@@ -59,7 +59,7 @@ export default {
 						'HTML, CSS',
 						'JavaScript, PHP, NodeJS, Node-RED',
 						'Vue, React, Laravel, Django',
-						'Drupal'
+						'Drupal',
 					]
 				},
 				{
@@ -82,17 +82,18 @@ export default {
 					]
 				},
 				{
-					title: 'Other Dev Tools',
+					title: 'Other Dev Tools/Skills',
 					details: [
 						'REST',
 						'Windows, Linux',
+						'Artificial Intelligence',
 					]
 				},
 				{
 					title: 'Astronomy',
 					details: [
 						'Astrophysics, Cosmology',
-						'Observational astronomy, Telescopes, Stargazing'
+						'Observational astronomy, Telescopes, Stargazing',
 					]
 				},
 			]

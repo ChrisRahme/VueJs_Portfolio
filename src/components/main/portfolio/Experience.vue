@@ -52,12 +52,13 @@ export default {
 							title: 'Full-Stack Web Developer & Data Integration Analyst (Full-time)',
 							location: 'Data Consult',
 							details: [
-								'Maily working with Laravel, Node-RED, and Docker.',
+								'Maily working with Laravel, Node-RED, Python, and Docker.',
 								'',
 								'Major tasks:',
-								'- Google Chat chatbot integrated with NodeJS.',
-								'- Laravel + Node-RED + Asterisk call recording feature for Cisco VoIP phones using CUCM.',
-								'- Django + Node-RED CRUD and CRM app to manage clients\'s profile and licenses.'
+								'- Google Chat chatbot for internal use (Google Apps, NodeJS).',
+								'- Cisco phone call recording module for web app (Laravel, Node-RED, Asterisk).',
+								'- Audio sentiment analysis module for call recording (Python).',
+								'- CRUD and CRM app to manage clients\'s profile and licenses (Python Django, Node-RED).'
 							]
 						},
 						{
