@@ -85,7 +85,7 @@ export default {
 					links: [gitLink('FYP-Chatbot')],
 					feet: ['Rasa', 'Python', 'JavaScript', 'Kotlin', 'Docker', 'Kubernetes', 'Helm'],
 					text: [
-						'Multilingual customer support AI chatbot with interfaces for Web and Mobile.'
+						'Multilingual customer support AI chatbot with interfaces for Web and Mobile.',
 					],
 				},
 
@@ -95,7 +95,7 @@ export default {
 					feet: ['Vue 3', 'Vite', 'Netlify'],
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
-						'I hope you like it!'
+						'I hope you like it!',
 					],
 				},
 
@@ -105,9 +105,27 @@ export default {
 					feet: ['Android', 'Unity', 'C#'],
 					text: [
 						'FlappyBird-based game.',
-						'Took a day to code the game, took a week to upload it on the Play Store.'
+						'Took a day to code the game, took a week to upload it on the Play Store.',
 					],
 				},
+
+				{
+					title: 'Duolingo XP Farmer & Learner',
+					links: [gitLink('Duolingo_Bot')],
+					feet: ['Python', 'Selenium'],
+					text: [
+						'Duolingo bot that automatically learns and completes courses.',
+					],
+				},
+
+				// /*{
+				// 	title: 'DarkWeb Page Classification API',
+				// 	links: [gitLink('DarkWeb_Page_Classification')],
+				// 	feet: ['Python', 'Flask', 'Scikit-Learn', 'TensorFlow'],
+				// 	text: [
+				// 		'Duolingo bot that automatically learns and completes courses.',
+				// 	],
+				// },*/
 			]
 		}
   	},
