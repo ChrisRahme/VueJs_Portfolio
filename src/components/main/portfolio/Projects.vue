@@ -92,7 +92,7 @@ export default {
 				{
 					title: 'Portfolio Website',
 					links: [gitLink('VueJs_Portfolio')],
-					feet: ['Vue 3', 'Vite', 'Netlify'],
+					feet: ['Vue3', 'Vite', 'Netlify'],
 					text: [
 						'Yes, the one you\'re looking at right now! :)',
 						'I hope you like it!',

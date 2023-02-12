@@ -49,7 +49,7 @@ export default {
 					tasks: [
 						{
 							start: 'Sep 2021', //end: 'Present',
-							title: 'Full-Stack Web Developer & Data Integration Analyst (Full-time)',
+							title: 'Full-Stack Web & Data Integration Developer (Full-time)',
 							location: 'Data Consult',
 							details: [
 								'Maily working with Laravel, Node-RED, Python, and Docker.',
@@ -57,8 +57,8 @@ export default {
 								'Major tasks:',
 								'- Google Chat chatbot for internal use (Google Apps, NodeJS).',
 								'- Cisco phone call recording module for web app (Laravel, Node-RED, Asterisk).',
-								'- Audio sentiment analysis submodule for call recording module (Python).',
-								'- CRUD and CRM app to manage clients\'s profile and licenses (Python Django, Node-RED).'
+								'- AI speech emotion recognition submodule for call recording module (Python [Keras, Scikit-Learn]).',
+								'- CRUD and CRM app to manage clients\'s profile and licenses (Python [Django], Node-RED).'
 							]
 						},
 						{
